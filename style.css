@@ -1,0 +1,231 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(255, 255, 255, 0.979);
+  margin-left: 100px;
+  margin-top: 50px;
+  margin-right: 100px;
+  line-height: 1.4em;
+}
+
+#fps {
+  color: green;
+}
+
+#numTensors {
+  color: red;
+  align-content: center;
+  align-content: center;
+}
+
+
+
+#loss {
+  color: red;
+}
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.left-div{
+  flex: 1;
+  margin-top: 50px;
+  margin-left: 50px;
+  
+}
+
+.rigth-div{
+  flex: 2;
+  margin-left: 1em;
+  margin-top: 6em;
+  margin-right: 3em;
+  display: flex;
+  
+  align-items: center;
+
+}
+
+
+.explicacao{
+  font-size: 1.4em;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 2em;
+  flex: 1;
+  margin-bottom: 8%;
+}
+
+.tabela{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+#table{
+  flex:1;
+}
+
+.inline-block-child {
+  flex: 1;
+}
+
+.slidecontainer{
+  display:flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.button-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.buttons{
+  
+  flex-basis: 40%;
+
+}
+
+#sketch-holder{
+  margin: auto;
+}
+
+.sketch-wrapper{
+  display: flex;
+}
+
+.meio{
+  margin: 2%;
+}
+
+.links{
+  display: flex;
+  margin-top: 5%;
+  flex-wrap: wrap;
+}
+
+.p-wrapper{
+  font-size: 1.4em;
+}
+
+.links-esquerda{
+  flex: 1.3;
+  margin:auto;
+}
+
+.links-direita{
+  /* margin-top: 5%; */
+  flex: 1.7;
+  margin-left: 5%;
+  border-left: 6px solid rgb(62, 149, 199);
+  height: 90%;
+  display:flex;
+  flex-direction: column;
+}
+
+.video-wrapper{
+  margin:auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.video-explicacao {
+  font-size: 1.4em;
+  margin: auto;
+  
+  margin-left: 30px;
+  justify-content: center;
+}
+
+
+
+.list-wrapper{
+  font-size: 1.2em;
+}
+
+.list-wrapper a{
+  font-size: 1.5em;
+}
+
+.nn-grafico{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.nn-wrapper{
+  flex: 3;
+  
+}
+.nn-wrapper img{
+  width: 100%;
+}
+.explicacao-nn{
+  flex: 1;
+  font-size: 1.5em;
+  margin: auto;
+  margin-bottom: 6%;
+
+}
+
+
+
+
+.footer{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgba(250, 250, 250, 0.925);
+}
+
+.footer-wrapper{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin: auto;
+
+}
+
+.footer-direita{
+  margin-top: 4em;
+  margin-left: 7em;
+
+  
+}
+
+.quote{
+  font-size: 24px;
+}
+
+.footer-wrapper{
+  
+  display: flex;
+  align-items: center;
+
+}
+
+.not-quote{
+  font-size: 2.5em;
+
+}
+
+.not-quote p{
+  margin-bottom: 0px;
+}
+
+.img-wrapper{
+  display: inline-block;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 50%;
+
+}
+.img-wrapper img{
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
+
+}

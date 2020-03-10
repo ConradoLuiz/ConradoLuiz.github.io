@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Flappy Bird com TensorFlow</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <script src="javascript/sketch.js"></script>
+    <script src="javascript/bird.js"></script>
+    <script src="javascript/pipe.js"></script>
+    <script src="javascript/rede.js"></script>
+    <script src="javascript/genetic.js"></script>
+</head>
+
+<body>
+    <header style="background-color: ">
+        <h1>Flappy Bird com TensorFlow e P5</h1>
+    </header>
+
+    <div class="parent">
+        <div class="child left-div">
+            <div class="sketch-wrapper">
+                <div id="sketch-holder"></div>
+            </div>
+
+
+            <p1 id="fps">fps</p1>
+            <!-- <div class="slider-wrapper">
+
+            </div> -->
+            <div class="slidecontainer">
+                <input type="range" min="1" max="10" value="1" class="slider" id="myRange">
+            </div>
+
+            <div class="button-wrapper">
+                <button class="buttons" type="button" onclick="noLoop()">
+                    Parar Animação
+                </button>
+                <button class="buttons" type="button" onclick="loop()">
+                    Voltar Animação
+                </button>
+            </div>
+        </div>
+
+        <div class="child rigth-div">
+            <div style="flex: 1;">
+                <p class="explicacao">
+                    Lembra do jogo Flappy Bird? Aquele que virou febre a uns anos atrás, e ninguém parava de jogar! Era
+                    um jogo tão simples,
+                    apenas clique para fazer o passarinho pular e passe pelo meio dos canos! Mas lembra como era
+                    frustrante? Todas aquelas
+                    tentativas, todas aquelas horas disperdiçadas, todo aquele esforço em vão, para você conseguir fazer
+                    15 pontos e ficar feliz.
+                    Até que seu amigo pegava pra jogar e fazia 50 pontos. Por esses motivos, eu resolvi me empenhar para
+                    fazer esse projeto!
+                    E aqui está, criei uma inteligência artificial que joga o Flappy Bird sozinha, e se aprimora a cada
+                    vez que perde! Ela
+                    consegue fazer isso por conta de algoritmos genéticos! Primeiro, é claro, que esse não é o Flappy
+                    Bird original, pois para
+                    que a inteligencia artifical conseguisse jogar, ela tem que receber informações bem claras do jogo
+                    sobre a posição dos objetos.
+                    Por esse motivo, tive que primeiro recriar o jogo Flappy Bird com a biblioteca P5.js, para depois
+                    implementar a rede neural
+                    usando o TensorFlow.js com a ajuda de algoritmos genéticos para treinar o modelo. Estou ciente que
+                    ainda tem o que aprimorar,
+                    porém para um projeto inicial sobre Machine Learning, fiquei feliz com o resultado. Como os pesos iniciais
+                    são gerados randomicamente, talvez demore um pouco para ela conseguir jogar. Se isso acontecer, apenas recarregue a página.
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="meio">
+        <div class="tabela">
+            <table class="u-full-width">
+                <thead>
+                    <tr>
+                        <th>Geração</th>
+                        <th>Melhor Pontuação</th>
+                        <th>Distancia</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="display: flex; justify-content: space-between">
+            <div style="display: flex">
+                <div style="display: flex">
+                    <p style="margin: auto">
+                        Clique no botão para adicionar a geração atual
+                    </p>
+                </div>
+                <button style="margin-left: 20px; margin-bottom: 0px;" class="button-primary" type="button"
+                    onclick="atualizaRow()">
+                    Adicionar
+                </button>
+            </div>
+
+            <div style="display: flex">
+                <div style="display: flex">
+                    <p style="margin: auto">Atualização automatica da tabela</p>
+                </div>
+
+                <button style="margin-left: 20px; margin-bottom: 0px; background-color: rgb(216, 55, 55)"
+                    class="button-primary" type="button" onclick="podeAtualizar = !podeAtualizar">
+                    Parar/Voltar
+                </button>
+            </div>
+
+
+        </div>
+    </div>
+    <hr>
+    <div class="links">
+        <div class="links-esquerda">
+
+
+            <div class="p-wrapper">
+                <p>A aplicação demonstrada nesse website foi feita com os seguintes recursos:</p>
+            </div>
+            <div class="list-wrapper">
+                <ul>
+                    <li>
+                        <a href="https://www.tensorflow.org/js">TensorFlow.js</a>
+                        <ul>
+                            <li>TensorFlow.js é uma biblioteca para desenvolvimento de modelos de ML (Machine
+                                Learning) que pode funcionar inteiramente em Client-Side. Ela tem suas vertentes em
+                                outras linguagens como: python, C++. A mais usada é em python, porém o TensorFlow.js é
+                                bem capaz de trabalhar com modelos menores.
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="https://p5js.org/">P5.js</a>
+                        <ul>
+                            <li>P5.js é uma bilbioteca de JavaScript que facilita a programação de jogos e nas áreas de
+                                artes, entre outras coisas. Ela também tem outras vertentes, em linguaguens como Java, e
+                                python, possibilitando até o desenvolvimento de aplicações para android com ela.
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="https://en.wikipedia.org/wiki/Genetic_algorithm"> Algoritmo Genético</a>
+                        <ul>
+                            <li>
+                                Algoritmo Genético é uma de técnica de computação que puxa inspiração na biologia
+                                evolutiva para implementar conceitos como hereditariedade, mutação, seleção natural
+                                e recombinação.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="links-direita">
+            <div class="video-wrapper">
+                <video width="352" height="640" controls>
+                    <source src="video/record-flappy.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-explicacao">
+                <p>Neste video é possivel observar que a implementação do TensorFlow com algoritmos genéticos realmente
+                    funciona. 🎉🥳🎉 🥳</p>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <div class="nn-grafico">
+        <div class="nn-wrapper">
+            <img src="images/neural_net.jpeg" alt="rede neural">
+        </div>
+        <div class="explicacao-nn">
+            <p>A imagem demonstra de uma forma gráfica a rede neural implementada no TensorFlow.
+                Ela tem 5 entradas que vem do jogo, 6 neurônios na hidden layer e uma camada final.
+                A saída da camada final é um número entre 0 e 1 e, se esse número for maior que 0.5, o passaro pula.</p>
+        </div>
+    </div>
+    <hr>
+    <div class="footer">
+        <div class="footer-wrapper">
+            <div class="img-wrapper">
+                <img src="images/eu-cortado.jpg" alt="foto do criador do site">
+            </div>
+
+            <div class="footer-direita">
+                <div class="quote">
+                    <q>Java is to JavaScript as ham is to hamster.</q>
+
+                </div>
+                <hr>
+                <div class="not-quote">
+                    <div>
+                        <p>Conrado Luiz</p>
+                        <p style="font-size: 18px;">Criador do website</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
