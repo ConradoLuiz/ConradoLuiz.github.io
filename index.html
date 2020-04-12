@@ -1,18 +1,26 @@
-<!-- FEITO POR CONRADO LUIZ EM 13/05/19 -->
+<!-- FEITO POR CONRADO LUIZ EM 13/05/19 
+    ATUALIZADO EM 12/04/20 -->
+
+
 <!DOCTYPE html>
 
 <html>
 
 <head>
     <meta charset="utf-8" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird com TensorFlow</title>
 
-    <link rel="stylesheet" href="style.css" />
+    
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Quicksand:wght@500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+
+    <link defer rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script defer src="js/utils.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
@@ -21,69 +29,83 @@
     <script src="javascript/pipe.js"></script>
     <script src="javascript/rede.js"></script>
     <script src="javascript/genetic.js"></script>
+
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 
 <body>
-    <header style="background-color: ">
-        <h1>Flappy Bird com TensorFlow e P5</h1>
-    </header>
-
-    <div class="parent">
-        <div class="child left-div">
-            <div class="sketch-wrapper">
-                <div id="sketch-holder"></div>
+    <div class="landing">
+        <header>
+            <div class="header-brand">
+                <h3>Conrado.dev</h3>
             </div>
-
-
-            <p1 id="fps">fps</p1>
-            <!-- <div class="slider-wrapper">
-
-            </div> -->
+    
+            <div class="header-nav">
+                <svg id='menu-toggle' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                <nav>
+                    <a href="CURRÍCULO_CONRADO_LUIZ_2020.pdf">Contato</a>
+                    <!-- <a href="#sobre">Sobre</a> -->
+                    <a id='menu-close' href="#">X</a>
+                </nav>
+            </div>
+        </header>
+    
+        <div class="content">
+            <div class="content-h1">
+                <h1>Inteligência</h1>
+                <h2>Artificial</h2>
+            </div>
+            <div class="content-h2">
+                <h2>Flappy Bird</h2>
+            </div>
+        </div>
+    
+        <div class="color-block"></div>
+    
+        <div class="descricao">
+            <p><strong>Redes Neurais</strong> evoluem com <strong>algoritmos genéticos</strong> para alcançar o <strong>sucesso</strong> no jogo <strong>mais besta do mundo.</strong></p>
+        </div>
+    
+        <div class="main">
+            
+            
+            <div id="sketch-holder"></div>
+            
+            <p id="fps">fps</p>
+            
             <div class="slidecontainer">
                 <input type="range" min="1" max="10" value="1" class="slider" id="myRange">
             </div>
-
             <div class="button-wrapper">
-                <button class="buttons" type="button" onclick="noLoop()">
+                <button class="buttons stop" type="button" onclick="noLoop()">
                     Parar Animação
                 </button>
-                <button class="buttons" type="button" onclick="loop()">
+                <button class="buttons go" type="button" onclick="loop()">
                     Voltar Animação
                 </button>
             </div>
+            
+    
+            
         </div>
-
-        <div class="child rigth-div">
-            <div style="flex: 1;">
-                <p class="explicacao">
-                    Lembra do jogo Flappy Bird? Aquele que virou febre a uns anos atrás, e ninguém parava de jogar! Era
-                    um jogo tão simples,
-                    apenas clique para fazer o passarinho pular e passe pelo meio dos canos! Mas lembra como era
-                    frustrante? Todas aquelas
-                    tentativas, todas aquelas horas disperdiçadas, todo aquele esforço em vão, para você conseguir fazer
-                    15 pontos e ficar feliz.
-                    Até que seu amigo pegava pra jogar e fazia 50 pontos. Por esses motivos, eu resolvi me empenhar para
-                    fazer esse projeto!
-                    E aqui está, criei uma inteligência artificial que joga o Flappy Bird sozinha, e se aprimora a cada
-                    vez que perde! Ela
-                    consegue fazer isso por conta de algoritmos genéticos! Primeiro, é claro, que esse não é o Flappy
-                    Bird original, pois para
-                    que a inteligencia artifical conseguisse jogar, ela tem que receber informações bem claras do jogo
-                    sobre a posição dos objetos.
-                    Por esse motivo, tive que primeiro recriar o jogo Flappy Bird com a biblioteca P5.js, para depois
-                    implementar a rede neural
-                    usando o TensorFlow.js com a ajuda de algoritmos genéticos para treinar o modelo. Estou ciente que
-                    ainda tem o que aprimorar,
-                    porém para um projeto inicial sobre Machine Learning, fiquei feliz com o resultado. Como os pesos iniciais
-                    são gerados randomicamente, talvez demore um pouco para ela conseguir jogar. Se isso acontecer, apenas recarregue a página.
-                </p>
-            </div>
-
-
-        </div>
+    
+        <button class='cta'>
+            <a href="CURRÍCULO_CONRADO_LUIZ_2020.pdf">
+                <h2>Hire</h2>
+                <h2>me</h2>
+            </a>
+        </button>
     </div>
+    
 
-    <div class="meio">
+    <!-- <script>
+        $('#menu-toggle').on('click', function () {
+            // console.log('menu');
+            $('nav').css('display', 'flex');
+        });
+    </script> -->
+
+    <!-- <div class="meio">
         <div class="tabela">
             <table class="u-full-width">
                 <thead>
@@ -228,7 +250,7 @@
 
 
         </div>
-    </div>
+    </div> -->
 
 </body>
 

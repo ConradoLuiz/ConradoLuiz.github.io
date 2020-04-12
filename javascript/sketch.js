@@ -254,7 +254,7 @@ function reset() {
 
   calcFitness();
   melhorPontuacao = pontos;
-  if (podeAtualizar) newRow();
+  // if (podeAtualizar) newRow();
   evolve();
 
   geracao++;
