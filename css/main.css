@@ -186,6 +186,7 @@ button[class=cta] {
 @media only screen and (min-width: 1000px) {
   body {
     font-size: 18px;
+    overflow-y: hidden;
   }
   .landing {
     width: 100%;
