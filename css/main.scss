@@ -216,8 +216,28 @@ button[class=cta]{
 @media only screen and (min-width: 1000px){
     body{
         font-size: 18px;
-        overflow-y: hidden;
+        // overflow-y: hidden;
     }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888; 
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+      }
+    
 
     .landing{
         width: 100%;
